@@ -24,7 +24,10 @@ public class Main {
 		}
 		sc.close();
 
-		System.out.println(students);
+		for (int i = 0; i < m; i++) {
+			Student student = students.get(i);
+			System.out.println(student.getName());
+		}
 
 	}
 
