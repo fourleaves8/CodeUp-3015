@@ -25,7 +25,7 @@ public class Main {
 
 		}
 		sc.close();
-		Collections.sort(students);
+		Collections.sort(students, Collections.reverseOrder());
 		
 		for (int i = 0; i < m; i++) {
 			Student student = students.get(i);
