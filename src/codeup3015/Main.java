@@ -1,6 +1,8 @@
 package codeup3015;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -23,7 +25,8 @@ public class Main {
 
 		}
 		sc.close();
-
+		Collections.sort(students);
+		
 		for (int i = 0; i < m; i++) {
 			Student student = students.get(i);
 			System.out.println(student.getName());

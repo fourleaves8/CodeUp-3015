@@ -1,6 +1,6 @@
 package codeup3015;
 
-public class Student {
+public class Student implements Comparable<Student> {
 	private String name;
 	private int score;
 	private int id;
@@ -9,6 +9,11 @@ public class Student {
 		this.name = name;
 		this.score = score;
 		this.id = id;
+	}
+
+	@Override
+	public String toString() {
+		return "Student [name=" + name + ", score=" + score + ", id=" + id + "]";
 	}
 
 	public String getName() {
@@ -36,8 +41,8 @@ public class Student {
 	}
 
 	@Override
-	public String toString() {
-		return "Student [name=" + name + ", score=" + score + ", id=" + id + "]";
+	public int compareTo(Student student) {
+		return this.score == student.score ? 0 : this.score > student.score ? 1 : -1;
 	}
 
 }
