@@ -1,8 +1,8 @@
 package codeup3015;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -25,13 +25,65 @@ public class Main {
 
 		}
 		sc.close();
-		Collections.sort(students, Collections.reverseOrder());
-		
+		Comparator<Student> compareStudents = new Comparator<Student>() {
+			public int compare(Student s1, Student s2) {
+				if (s1.getScore() == s2.getScore()) {
+					return (s1.getId() > s2.getId() ? 1 : -1);
+				}
+				return (s1.getScore() > s2.getScore() ? 1 : -1) * -1;
+			}
+
+		};
+
+		Collections.sort(students, compareStudents);
+
 		for (int i = 0; i < m; i++) {
 			Student student = students.get(i);
 			System.out.println(student.getName());
 		}
 
+	}
+
+}
+
+class Student {
+	private String name;
+	private int score;
+	private int id;
+
+	public Student(String name, int score, int id) {
+		this.name = name;
+		this.score = score;
+		this.id = id;
+	}
+
+	@Override
+	public String toString() {
+		return "Student [name=" + name + ", score=" + score + ", id=" + id + "]";
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getScore() {
+		return score;
+	}
+
+	public void setScore(int score) {
+		this.score = score;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 }
